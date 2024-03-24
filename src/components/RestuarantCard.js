@@ -1,7 +1,7 @@
 import React from "react";
+import { restaurantImage } from "../utils/constants";
 
 const RestaurantCard = ({ restuarant }) => {
-  console.log(restuarant.info);
   const {
     areaName,
     avgRating,
@@ -15,7 +15,7 @@ const RestaurantCard = ({ restuarant }) => {
     <div className="hover:cursor-pointer">
       <div className="relative w-[350px]">
         <img
-          src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${cloudinaryImageId}`}
+          src={restaurantImage + cloudinaryImageId}
           alt="Shah Ghouse Hotel & Restaurant"
           className="w-[350px] h-52 object-cover rounded-3xl"
         />
@@ -23,11 +23,16 @@ const RestaurantCard = ({ restuarant }) => {
         <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-75 rounded-3xl"></div>
 
         <div className="absolute inset-0 flex  justify-start items-end text-white pb-5 pl-5">
-          <h3 className="text-2xl font-bold uppercase">{`${header} ${subHeader}`}</h3>
+          <h3 className="text-2xl font-bold uppercase">
+            {header ? `${header} ${subHeader}` : ""}
+          </h3>
         </div>
       </div>
       <div className="pl-4 py-2">
-        <h3 className="text-2xl font-bold text-slate-800"> {name}</h3>
+        <h3 className="text-2xl font-bold text-slate-800">
+          {" "}
+          {name.length > 24 ? name.substring(0, 24) + `...` : name}
+        </h3>
         <div className="flex justify-start">
           {" "}
           <span className="flex justify-start items-center ">
