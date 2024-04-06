@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import RestaurantCard from "../components/RestuarantCard";
 import Button from "../components/Button";
 import { filters, getRestuarants } from "../utils/constants";
+import { Link } from "react-router-dom";
 
 const Restuarants = ({
   location,
@@ -112,7 +113,13 @@ const Restuarants = ({
                 {filteredData?.map((restuarant, index) => {
                   return (
                     <div key={index}>
-                      <RestaurantCard restuarant={restuarant} />
+                      <Link to={"/restaurant/" + restuarant.info.id}>
+                        {" "}
+                        <RestaurantCard
+                          restuarant={restuarant}
+                          key={restuarant.info.id}
+                        />
+                      </Link>
                     </div>
                   );
                 })}

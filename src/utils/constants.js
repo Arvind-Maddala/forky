@@ -4,6 +4,10 @@ export const restaurantImage =
 export const getRestuarants =
   "https://corsproxy.io/?https://www.swiggy.com/mapi/homepage/getCards?";
 
+export const getRestuarant =
+  "https://corsproxy.io/?https://www.swiggy.com/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true";
+
+// "https://corsproxy.io/?https://www.swiggy.com/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=17.4485835&lng=78.39080349999999&restaurantId=618626&isMenuUx4=true&submitAction=ENTER"
 export const filters = [
   { name: "Filter", iconType: "filter" },
   { name: "Sort By", iconType: "down" },
