@@ -46,6 +46,8 @@ const Home = () => {
       setFilteredData(restaurantsData);
     }
   }, [searchItem, restaurantsData]);
+
+  console.log(restaurantsData);
   return (
     <>
       <Header

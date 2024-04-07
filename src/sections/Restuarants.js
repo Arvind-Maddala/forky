@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-import RestaurantCard from "../components/RestuarantCard";
+import RestaurantCard, {
+  WithPromotionCard,
+} from "../components/RestuarantCard";
 import Button from "../components/Button";
 import { filters, getRestuarants } from "../utils/constants";
 import { Link } from "react-router-dom";
@@ -84,6 +86,8 @@ const Restuarants = ({
     }
   };
 
+  const PromotionCard = WithPromotionCard(RestaurantCard);
+
   return (
     <>
       <div>
@@ -111,14 +115,21 @@ const Restuarants = ({
             <div className="flex justify-center flex-col items-center mt-10 ">
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-10 max-w-screen-2xl">
                 {filteredData?.map((restuarant, index) => {
+                  console.log(restuarant);
                   return (
                     <div key={index}>
                       <Link to={"/restaurant/" + restuarant.info.id}>
-                        {" "}
-                        <RestaurantCard
-                          restuarant={restuarant}
-                          key={restuarant.info.id}
-                        />
+                        {restuarant?.info.promoted ? (
+                          <PromotionCard
+                            restuarant={restuarant}
+                            key={restuarant.info.id}
+                          />
+                        ) : (
+                          <RestaurantCard
+                            restuarant={restuarant}
+                            key={restuarant.info.id}
+                          />
+                        )}
                       </Link>
                     </div>
                   );

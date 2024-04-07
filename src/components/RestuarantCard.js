@@ -90,4 +90,19 @@ const RestaurantCard = ({ restuarant }) => {
   );
 };
 
+export const WithPromotionCard = (RestaurantCard) => {
+  return (props) => {
+    return (
+      <div className="relative">
+        <span className="bg-[#030712] text-white font-semibold px-6 py-2 rounded-xl absolute top-4 left-4 z-20 tracking-wide">
+          {" "}
+          PROMOTED
+        </span>
+        <div>
+          <RestaurantCard {...props} />
+        </div>
+      </div>
+    );
+  };
+};
 export default RestaurantCard;
