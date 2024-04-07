@@ -47,7 +47,6 @@ const Home = () => {
     }
   }, [searchItem, restaurantsData]);
 
-  console.log(restaurantsData);
   return (
     <>
       <Header

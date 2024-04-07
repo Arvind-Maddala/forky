@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import RestaurantCard, {
   WithPromotionCard,
 } from "../components/RestuarantCard";
 import Button from "../components/Button";
 import { filters, getRestuarants } from "../utils/constants";
 import { Link } from "react-router-dom";
+import RestuarantsShimmer from "../components/RestuarantsShimmer";
 
 const Restuarants = ({
   location,
@@ -92,7 +93,9 @@ const Restuarants = ({
     <>
       <div>
         {isLoading ? (
-          <p>Loading...</p>
+          <div className="flex justify-start flex-col items-start mt-10 mx-auto max-w-screen-2xl">
+            <RestuarantsShimmer />
+          </div>
         ) : error ? (
           <p>Error: {error}</p>
         ) : restaurantsData ? (
@@ -138,7 +141,9 @@ const Restuarants = ({
             </div>
           </>
         ) : (
-          <p>No restaurants available.</p>
+          <div className="flex justify-start flex-col items-start mt-10 mx-auto max-w-screen-2xl">
+            <RestuarantsShimmer />
+          </div>
         )}
       </div>
     </>
